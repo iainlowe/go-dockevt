@@ -1,3 +1,5 @@
+// Package dockevt provides a way to hook into the stream of events sent by Docker.
+
 package dockevt
 
 import (
@@ -9,12 +11,14 @@ import (
 	"strings"
 )
 
+// An event from the Docker daemon
 type Event struct {
 	ID        string `json:"id"`
 	Status    string `json:"status"`
 	Container *Container
 }
 
+// The Docker container for which an event occurred
 type Container struct {
 	ID              string
 	Name            string
